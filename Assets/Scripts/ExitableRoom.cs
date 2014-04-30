@@ -24,15 +24,16 @@ using System.Collections;
 	//Be sure to assign roomValue first
 	public void ConnectRoom(){
 		Vector3 exit;
-
+		GameObject nObject;
 		//north
-		exit = walls[0].transform.position;
 		if (roomValue % 2 == 0) {
-			Instantiate(hallways[0],exit,Quaternion.identity);
+			nObject = (GameObject)Instantiate(hallways[0],Vector3.zero,Quaternion.identity);
 		}
 		else{
-			Instantiate(walls[0],exit,Quaternion.identity);
+			nObject = (GameObject)Instantiate(walls[0],Vector3.zero,Quaternion.identity);
 		}
+		exit = exits [0].transform.position;
+		nObject.transform.position = exit;
 
 		//east
 		exit = exits[1].transform.position;
