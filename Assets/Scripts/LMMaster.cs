@@ -9,7 +9,7 @@ public class LMMaster : MonoBehaviour
 	public ExitableRoom cub;
     public int numOfRooms;
 	public int roomLength, hallLength;
-	public GameObject player;
+	public GameObject player, exit;
 
 
     // Use this for initialization
@@ -84,14 +84,17 @@ public class LMMaster : MonoBehaviour
 	private void roomify(){
 		Vector3 startPos = new Vector3(-6f,3f,0f);//Hardcoded, for now, as it will not matter once every room has a camera
 		//Instantiate(cub,startPos,Quaternion.identity);
-		bool playerNotAdded = true;
+		bool exitNotAdded = true;
 		ExitableRoom tc;
 		for(int i =0; i < gridWidth; i++){
 			for(int j=0; j <gridHeight; j++){
 
 				if(grid[i,j] != 0){
-					if(playerNotAdded)
-						player.rigidbody.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-2f);
+					if(exitNotAdded){
+						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);
+						exitNotAdded = false;
+					}
+					player.rigidbody.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);
 					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),startPos.z),Quaternion.identity);
 					tc.roomValue =grid[i,j];
 					tc.ConnectRoom();

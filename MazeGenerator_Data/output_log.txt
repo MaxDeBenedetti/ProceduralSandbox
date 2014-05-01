@@ -1,0 +1,29 @@
+Initialize engine version: 4.3.4f1 (e444f76e01cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvumdshim.dll 9.18.13.3750]
+    Renderer: NVIDIA GeForce GTX 770
+    Vendor:   NVIDIA
+    VRAM:     1985 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Max\Documents\GitHub\ProceduralSandbox\MazeGenerator_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Max\Documents\GitHub\ProceduralSandbox\MazeGenerator_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Max\Documents\GitHub\ProceduralSandbox\MazeGenerator_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Max\Documents\GitHub\ProceduralSandbox\MazeGenerator_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+- Completed reload, in  0.039 seconds
+desktop: 1920x1080 60Hz; virtual: 3600x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+UnloadTime: 4.863790 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 214.
+Total: 1.690493 ms (FindLiveObjects: 0.033206 ms CreateObjectMapping: 0.022640 ms MarkObjects: 0.154559 ms  DeleteObjects: 0.008754 ms)
+
+UnloadTime: 4.644025 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 214.
+Total: 1.557366 ms (FindLiveObjects: 0.022640 ms CreateObjectMapping: 0.022640 ms MarkObjects: 0.138258 ms  DeleteObjects: 0.008150 ms)
+
