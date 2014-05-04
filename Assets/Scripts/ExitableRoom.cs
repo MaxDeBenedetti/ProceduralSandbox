@@ -21,6 +21,7 @@ using System.Collections;
 	}
 
 	//Connects this room to other rooms using hallways
+	//If there is not a connection between rooms, it creates a wall instead
 	//Be sure to assign roomValue first
 	public void ConnectRoom(){
 		Vector3 exit;

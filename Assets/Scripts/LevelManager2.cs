@@ -8,7 +8,7 @@ public class LevelManager2 : MonoBehaviour
 	public int gridWidth, gridHeight;
 	public TestCube cub;
 	public int numOfRooms;
-	public int roomLength, hallLength;
+	public float roomLength, hallLength;
 	public GameObject player;
 	
 	

@@ -8,7 +8,7 @@ public class LMMaster : MonoBehaviour
     public int gridWidth, gridHeight;
 	public ExitableRoom cub;
     public int numOfRooms;
-	public int roomLength, hallLength;
+	public float roomLength, hallLength;
 	public GameObject player, exit;
 
 
@@ -29,8 +29,9 @@ public class LMMaster : MonoBehaviour
 
         grid[firstX, firstY] = 1;
 
+		//Begins step 1
         RoomAdder adder = new RoomAdder(firstX, firstY, grid, numOfRooms);
-        int[] room;
+        int[] room;//A two element array that represents a single room
         while (adder.RoomCount < numOfRooms)
         {
             room = RoomAdder.PickRoom(adder.RoomCount, adder.RoomList);
@@ -38,8 +39,9 @@ public class LMMaster : MonoBehaviour
             adder.Process();
         }
 
+		//Begins step 2
         RoomEvaluator eval = new RoomEvaluator(grid, numOfRooms);
-
+		//Processes the entire grid
         for (int i = 0; i < gridWidth; i++)
         {
             for (int j = 0; j < gridHeight; j++)
@@ -53,7 +55,7 @@ public class LMMaster : MonoBehaviour
             }
         }
 
-
+		//begins step 3
 		roomify();
     }
 
@@ -64,7 +66,7 @@ public class LMMaster : MonoBehaviour
     }
 
 	/*
-	 * checks the rooms around a specified room and then performs the action defined by process object p
+	 * feeds the neighbors of a given room to process object p
 	 */
     public void NeighborCheck(int[,] grid, int row, int colum, ProcessObject p)
     {
@@ -83,18 +85,21 @@ public class LMMaster : MonoBehaviour
 	 */
 	private void roomify(){
 		Vector3 startPos = new Vector3(-6f,3f,0f);//Hardcoded, for now, as it will not matter once every room has a camera
-		//Instantiate(cub,startPos,Quaternion.identity);
 		bool exitNotAdded = true;
 		ExitableRoom tc;
 		for(int i =0; i < gridWidth; i++){
 			for(int j=0; j <gridHeight; j++){
 
 				if(grid[i,j] != 0){
-					if(exitNotAdded){
+
+					//block moves the player and exit into position
+					if(exitNotAdded){//Adds the exit to the first room instantiated
 						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);
 						exitNotAdded = false;
 					}
-					player.rigidbody.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);
+					player.rigidbody.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);//places the player in the last room instantiated
+
+					//Instantiates a room
 					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),startPos.z),Quaternion.identity);
 					tc.roomValue =grid[i,j];
 					tc.ConnectRoom();
