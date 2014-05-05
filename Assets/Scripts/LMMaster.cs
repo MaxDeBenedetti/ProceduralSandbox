@@ -15,6 +15,7 @@ public class LMMaster : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		//initiallizes a numeric grid where every element is 0
         grid = new int[gridWidth, gridHeight];
         for (int i = 0; i < gridWidth; i++)
         {
@@ -27,6 +28,7 @@ public class LMMaster : MonoBehaviour
         int firstX = gridWidth / 2;
         int firstY = gridHeight / 2;
 
+		//set the middle element to 1
         grid[firstX, firstY] = 1;
 
 		//Begins step 1
