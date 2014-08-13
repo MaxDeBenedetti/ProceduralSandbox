@@ -1,8 +1,6 @@
 ProceduralSandbox
 =================
 
-A procedural maze generator for Unity
-
 I present to you my Masters Project, an originial maze generator for Unity.
 
 The generator is a three step algorithm. 
