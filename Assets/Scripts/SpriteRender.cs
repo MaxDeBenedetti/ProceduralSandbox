@@ -7,7 +7,7 @@ public class SpriteRender : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        
+        m_Camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame

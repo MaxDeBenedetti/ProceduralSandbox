@@ -452,3 +452,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnLocations: []
+  spawnables:
+  - {fileID: 114000013474842230, guid: a1793225cf7fb2a41ac7501777ca6c0b, type: 2}

@@ -6,32 +6,30 @@ public class EnemyActor : Spawnable {
     public bool seekingPlayer = false;
     public int health, damage;
     public Bullet enemybullet;
-    public Transform gun;
-    public Transform playerPosition;
+    public Transform gun, gunBase;
+    private Transform playerPosition;
 
 	// Use this for initialization
 	void Start () {
-        playerPosition = GameObject.FindGameObjectWithTag("player").transform;
+        playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         health = PlayerPrefs.GetInt(Names.currentFloor);
         damage = health;//hacky
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+        gunBase.transform.LookAt(playerPosition);
 	}
 
     public void Shoot()
     {
-        GameObject nObject = (GameObject)GameObject.Instantiate(enemybullet, gun.position, gun.rotation);
-        Bullet bullet = nObject.GetComponent<Bullet>();
-        bullet.Fly(gun.transform.forward);
+        Bullet bullet = (Bullet)Instantiate(enemybullet, gun.position, gun.rotation);
+        bullet.Fly(gunBase.transform.forward);
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTrigerEnter(Collider col)
     {
-        Collider col = collision.collider;
         if (col.tag.Equals(Names.playerBullet))
         {
             OnDamage(col.GetComponent<Bullet>().damage);

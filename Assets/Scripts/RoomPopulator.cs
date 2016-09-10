@@ -24,6 +24,7 @@ public class RoomPopulator : MonoBehaviour {
         foreach(Transform t in spawnLocations)
         {
             enemies.Add(GameObject.Instantiate(spawnables[0]).GetComponent<EnemyActor>());
+            enemies[enemies.Count - 1].transform.position = t.position;
         }
     }
 

@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour {
     //requires a nomralized vector
     public void Fly(Vector3 direction)
     {
-        rb.velocity = direction * flightSpeed;
+        GetComponent<Rigidbody>().velocity = direction * flightSpeed;
     }
 
     public void Explode()
@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour {
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider col)
     {
         Explode();
     }
