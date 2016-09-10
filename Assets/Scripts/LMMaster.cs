@@ -85,6 +85,8 @@ public class LMMaster : MonoBehaviour
 	 */
 	private void roomify(){
 		Vector3 startPos = new Vector3(-6f,3f,0f);//Hardcoded, for now, as it will not matter once every room has a camera
+        Quaternion rotation = Quaternion.identity;
+        rotation.eulerAngles = new Vector3(90, 0, 0);
 		bool exitNotAdded = true;
 		ExitableRoom tc;
 		for(int i =0; i < gridWidth; i++){
@@ -94,13 +96,13 @@ public class LMMaster : MonoBehaviour
 
 					//block moves the player and exit into position
 					if(exitNotAdded){//Adds the exit to the first room instantiated
-						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);
+						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f, startPos.y - i * (roomLength + hallLength));
 						exitNotAdded = false;
 					}
-					player.rigidbody.position = new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),-0.5f);//places the player in the last room instantiated
+					player.GetComponent<Rigidbody>().position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f, startPos.y - i * (roomLength + hallLength));//places the player in the last room instantiated
 
 					//Instantiates a room
-					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.y-i*(roomLength+hallLength),startPos.z),Quaternion.identity);
+					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.z,startPos.y-i*(roomLength+hallLength)), rotation);
 					tc.roomValue =grid[i,j];
 					tc.ConnectRoom();
 				}

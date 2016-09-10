@@ -26,12 +26,16 @@ using System.Collections;
 	public void ConnectRoom(){
 		Vector3 exit;
 		GameObject nObject;
-		//north
-		if (roomValue % 2 == 0) {
-			nObject = (GameObject)Instantiate(hallways[0],Vector3.zero,Quaternion.identity);
+
+        Quaternion rotation = Quaternion.identity;
+        rotation.eulerAngles = new Vector3(90, 0, 0);
+
+        //north
+        if (roomValue % 2 == 0) {
+			nObject = (GameObject)Instantiate(hallways[0],Vector3.zero, rotation);
 		}
 		else{
-			nObject = (GameObject)Instantiate(walls[0],Vector3.zero,Quaternion.identity);
+			nObject = (GameObject)Instantiate(walls[0],Vector3.zero, rotation);
 		}
 		exit = exits [0].transform.position;
 		nObject.transform.position = exit;
@@ -39,22 +43,22 @@ using System.Collections;
 		//east
 		exit = exits[1].transform.position;
 		if (roomValue % 3 == 0) {
-			Instantiate(hallways[1],exit,Quaternion.identity);
+			Instantiate(hallways[1],exit, rotation);
 		}
 		else{
-			Instantiate(walls[1],exit,Quaternion.identity);
+			Instantiate(walls[1],exit, rotation);
 		}
 
 		//south
 		if(!(roomValue % 5 == 0)){
 			exit = exits[2].transform.position;
-			Instantiate(walls[2],exit,Quaternion.identity);
+			Instantiate(walls[2],exit, rotation);
 		}
 
 		//west
 		if(!(roomValue % 7 == 0)){
 			exit = exits[3].transform.position;
-			Instantiate(walls[3],exit,Quaternion.identity);
+			Instantiate(walls[3],exit, rotation);
 		}
 
 	}

@@ -12,11 +12,12 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidbody.velocity = Vector3.right * Input.GetAxis ("Horizontal") * speed + Vector3.up * Input.GetAxis("Vertical") * speed;
+		GetComponent<Rigidbody>().velocity = Vector3.right * Input.GetAxis ("Horizontal") * speed + Vector3.forward * Input.GetAxis("Vertical") * speed;
 		if(Input.GetKey(KeyCode.Escape)){
 		   Application.Quit();
 		}
 		if(Input.GetKey(KeyCode.N))
+            
 			Application.LoadLevel("TheDungeon");
 	}
 

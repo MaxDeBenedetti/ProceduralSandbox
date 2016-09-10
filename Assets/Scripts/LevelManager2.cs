@@ -91,7 +91,7 @@ public class LevelManager2 : MonoBehaviour
 				
 				if(grid[i,j] != 0){
 					if(playerNotAdded)
-						player.rigidbody.position = new Vector3(startPos.x+j,startPos.y-i,-2f);
+						player.GetComponent<Rigidbody>().position = new Vector3(startPos.x+j,startPos.y-i,-2f);
 					tc = (TestCube)Instantiate(cub,new Vector3(startPos.x+j,startPos.y-i,startPos.z),Quaternion.identity);
 					tc.setNum(grid[i,j]);
 				}
