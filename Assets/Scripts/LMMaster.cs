@@ -96,15 +96,17 @@ public class LMMaster : MonoBehaviour
 
 					//block moves the player and exit into position
 					if(exitNotAdded){//Adds the exit to the first room instantiated
-						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f, startPos.y - i * (roomLength + hallLength));
+						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength), 0.5f * roomLength, startPos.y - i * (roomLength + hallLength));
 						exitNotAdded = false;
 					}
-					player.GetComponent<Rigidbody>().position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f, startPos.y - i * (roomLength + hallLength));//places the player in the last room instantiated
+					player.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f*roomLength, startPos.y - i * (roomLength + hallLength));//places the player in the last room instantiated
 
 					//Instantiates a room
 					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.z,startPos.y-i*(roomLength+hallLength)), rotation);
+                    tc.transform.localScale *= roomLength;
 					tc.roomValue =grid[i,j];
-					tc.ConnectRoom();
+                    tc.roomScale = roomLength;
+					tc.ConnectRoom(hallLength);
 				}
 			}
 		}
