@@ -123,6 +123,8 @@ public class LMMaster : MonoBehaviour
                     tc.roomScale = roomLength;
 					tc.ConnectRoom(hallLength);
 
+                    tc.PopulatePopulator();
+
                     roomCount++;
 				}
 			}

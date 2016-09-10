@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class RoomPopulator : MonoBehaviour {
 
     public List<Transform> spawnLocations = new List<Transform>();
+    public List<Spawnable> spawnables = new List<Spawnable>();
+
+    private List<EnemyActor> enemies = new List<EnemyActor>();
 
 	// Use this for initialization
 	void Start () {
@@ -16,9 +19,21 @@ public class RoomPopulator : MonoBehaviour {
 	
 	}
 
-    void Populate()
+    public void Populate()
     {
+        foreach(Transform t in spawnLocations)
+        {
+            enemies.Add(GameObject.Instantiate(spawnables[0]).GetComponent<EnemyActor>());
+        }
+    }
 
+    public void AlertRoom()
+    {
+        Debug.Log("room alerted");
+        foreach(EnemyActor ea in enemies)
+        {
+            ea.seekingPlayer = true;
+        }
     }
 
 

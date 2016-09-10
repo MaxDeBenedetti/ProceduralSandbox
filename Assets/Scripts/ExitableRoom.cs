@@ -124,6 +124,11 @@ using System.Collections.Generic;
         rp.transform.localRotation = Quaternion.identity;
     }
 
+    public void PopulatePopulator()
+    {
+        rp.Populate();
+    }
+
 
 }
 
