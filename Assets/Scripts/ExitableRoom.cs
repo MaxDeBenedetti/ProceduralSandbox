@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 	public class ExitableRoom : MonoBehaviour {
 
@@ -10,6 +11,7 @@ using System.Collections;
 	public int roomLocX, roomLocY;
     public float roomScale = 1;
 
+    public List<RoomPopulator> potentialLayouts = new List<RoomPopulator>();
 
 	// Use this for initialization
 	void Start () {
@@ -103,6 +105,12 @@ using System.Collections;
 			roomLocY = value;
 		}
 	}
+     
+    public void RollRoomPopulator()
+    {
+
+    }
+
 
 }
 

@@ -89,17 +89,23 @@ public class LMMaster : MonoBehaviour
         rotation.eulerAngles = new Vector3(90, 0, 0);
 		bool exitNotAdded = true;
 		ExitableRoom tc;
+
+        int roomCount =0;
+
 		for(int i =0; i < gridWidth; i++){
 			for(int j=0; j <gridHeight; j++){
 
 				if(grid[i,j] != 0){
 
 					//block moves the player and exit into position
-					if(exitNotAdded){//Adds the exit to the first room instantiated
+					if(roomCount == 0){//Adds the exit to the first room instantiated
 						exit.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength), 0.5f * roomLength, startPos.y - i * (roomLength + hallLength));
 						exitNotAdded = false;
 					}
-					player.transform.position = new Vector3(startPos.x+j*(roomLength+hallLength),0.5f*roomLength, startPos.y - i * (roomLength + hallLength));//places the player in the last room instantiated
+                    if (roomCount == numOfRooms-1)
+                    {
+                        player.transform.position = new Vector3(startPos.x + j * (roomLength + hallLength), 0.5f * roomLength, startPos.y - i * (roomLength + hallLength));//places the player in the last room instantiated
+                    }
 
 					//Instantiates a room
 					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.z,startPos.y-i*(roomLength+hallLength)), rotation);
@@ -107,6 +113,8 @@ public class LMMaster : MonoBehaviour
 					tc.roomValue =grid[i,j];
                     tc.roomScale = roomLength;
 					tc.ConnectRoom(hallLength);
+
+                    roomCount++;
 				}
 			}
 		}
