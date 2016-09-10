@@ -109,6 +109,15 @@ public class LMMaster : MonoBehaviour
 
 					//Instantiates a room
 					tc = (ExitableRoom)Instantiate(cub,new Vector3(startPos.x+j*(roomLength+hallLength),startPos.z,startPos.y-i*(roomLength+hallLength)), rotation);
+                    if(roomCount == 0 || roomCount == numOfRooms - 1)
+                    {
+                        tc.SetRoomPopulator(0);
+                    }
+                    else
+                    {
+                        tc.RollRoomPopulator();
+                    }
+
                     tc.transform.localScale *= roomLength;
 					tc.roomValue =grid[i,j];
                     tc.roomScale = roomLength;

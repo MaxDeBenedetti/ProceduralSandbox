@@ -12,6 +12,7 @@ using System.Collections.Generic;
     public float roomScale = 1;
 
     public List<RoomPopulator> potentialLayouts = new List<RoomPopulator>();
+    private RoomPopulator rp;
 
 	// Use this for initialization
 	void Start () {
@@ -108,7 +109,19 @@ using System.Collections.Generic;
      
     public void RollRoomPopulator()
     {
+        int selection = (int)Random.Range(1, 6);
+        rp =  GameObject.Instantiate(potentialLayouts[selection]).GetComponent<RoomPopulator>();
+        rp.transform.parent = this.transform;
+        rp.transform.localPosition = Vector3.zero;
+        rp.transform.localRotation = Quaternion.identity;
+    }
 
+    public void SetRoomPopulator(int selection)
+    {
+        rp = GameObject.Instantiate(potentialLayouts[selection]).GetComponent<RoomPopulator>();
+        rp.transform.parent = this.transform;
+        rp.transform.localPosition = Vector3.zero;
+        rp.transform.localRotation = Quaternion.identity;
     }
 
 
