@@ -18,7 +18,7 @@ public class KillPlayer : MonoBehaviour {
     {
         if (collision.collider.tag.Equals("player"))
         {
-            SceneManager.LoadScene("EndScreen");
+            SceneManager.LoadScene("TheDungeon");
         }
     }
 }
