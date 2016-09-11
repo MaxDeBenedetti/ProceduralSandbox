@@ -680,6 +680,51 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000010874995892, guid: 4d690a19e25b2324e8515e7615e5239d,
+        type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4d690a19e25b2324e8515e7615e5239d, type: 2}
   m_IsPrefabParent: 0
@@ -855,7 +900,7 @@ GameObject:
   - 114: {fileID: 1241008815}
   - 114: {fileID: 1241008814}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: PlayerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,9 +924,9 @@ RectTransform:
   - {fileID: 664828999}
   m_Father: {fileID: 618681444}
   m_RootOrder: 1
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 510, y: 50}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -122, y: 50}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1241008814
