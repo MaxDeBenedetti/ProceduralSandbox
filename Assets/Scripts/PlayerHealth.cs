@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         me = gameObject.GetComponent<DigifestPlayer>();
+        me.health = PlayerPrefs.GetInt(Names.currentHealth);
         UpdateHealth();
 	}
 	
