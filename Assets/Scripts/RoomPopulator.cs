@@ -30,10 +30,9 @@ public class RoomPopulator : MonoBehaviour {
 
     public void AlertRoom()
     {
-        Debug.Log("room alerted");
         foreach(EnemyActor ea in enemies)
         {
-            ea.seekingPlayer = true;
+            ea.StartShooting();
         }
     }
 

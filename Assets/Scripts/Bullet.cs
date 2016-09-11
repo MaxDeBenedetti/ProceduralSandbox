@@ -26,11 +26,11 @@ public class Bullet : MonoBehaviour {
 
     public void Explode()
     {
-
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider col)
     {
-        Explode();
+        //Explode();
     }
 }

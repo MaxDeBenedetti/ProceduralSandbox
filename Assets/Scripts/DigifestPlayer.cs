@@ -30,35 +30,35 @@ public class DigifestPlayer : MonoBehaviour {
         }
 
         //hit by bullet
-        if (col.tag.Equals(Names.playerBullet))
+        if (col.tag.Equals(Names.enemyBullet))
         {
             OnDamage(col.GetComponent<Bullet>().damage);
         }
-    }
 
-    void OnCollisionEnter(Collision collision) {
-        Collider col = collision.collider;
-        //exit
         if (col.tag.Equals("exit"))
         {
             PlayerPrefs.SetInt("Current Health", health);
             PlayerPrefs.SetInt(Names.currentFloor, PlayerPrefs.GetInt(Names.currentFloor) + 1);
             SceneManager.LoadScene("TheDungeon");
         }
-
-        
     }
 
     void Shoot()
     {
         
-        Bullet bullet = (Bullet)Instantiate(playerBullet, gun.position, gun.rotation); 
+        Bullet bullet = (Bullet)Instantiate(playerBullet, gun.position, gun.rotation);
+        bullet.damage = 1;
         bullet.Fly(gun.transform.forward);
     }
 
     void OnDamage(int damage)
     {
         health -= damage;
+        gameObject.GetComponent<PlayerHealth>().UpdateHealth();
+        if(health < 1)
+        {
+            SceneManager.LoadScene("EndScreen");
+        }
     }
 
 }
