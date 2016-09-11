@@ -7,9 +7,11 @@ public class Bullet : MonoBehaviour {
     public int damage;
     public float flightSpeed;
     private Rigidbody rb;
+    public SpriteRenderer sr;
 
 	// Use this for initialization
 	void Start () {
+        sr.enabled = false;
         rb = GetComponent<Rigidbody>();
 	}
 	
@@ -24,13 +26,29 @@ public class Bullet : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = direction * flightSpeed;
     }
 
-    public void Explode()
+    IEnumerator Explode()
     {
+        
+        rb.velocity = Vector3.zero;
+        gameObject.GetComponent<Collider>().enabled = false;
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+        sr.enabled = true;
+        gameObject.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(0.25f);
         Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider col)
     {
-        //Explode();
+        if (col.tag.Equals("WallOrFloor")) 
+        {
+            Debug.Log(col.tag);
+            StartCoroutine("Explode");
+        }
+    }
+
+    public void MakeExplode()
+    {
+        StartCoroutine("Explode");
     }
 }

@@ -10,6 +10,8 @@ public class EnemyActor : Spawnable {
     private Transform playerPosition;
     private bool isAlive = true;
     private bool isReadyToShoot = true;
+    public Sprite drawn, fire, dead;
+    public SpriteRenderer mySprite;
 
     // Use this for initialization
     void Start() {
@@ -33,10 +35,11 @@ public class EnemyActor : Spawnable {
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col.tag);
+        
         if (col.tag.Equals(Names.playerBullet))
         {
             OnDamage(col.GetComponent<Bullet>().damage);
+            col.GetComponent<Bullet>().MakeExplode();
         }
     }
 
@@ -52,6 +55,7 @@ public class EnemyActor : Spawnable {
     {
         if (isAlive && isReadyToShoot)//enemy is alive and not already shooting
         {
+            mySprite.sprite = drawn;
             isReadyToShoot = false;
             StartCoroutine("Shooting");
         }
@@ -60,9 +64,12 @@ public class EnemyActor : Spawnable {
     IEnumerator Shooting()
     {
         while (true) {
-            float delay = Random.Range(0.25f, 3f);
+            float delay = Random.Range(0.05f, 3f);
             yield return new WaitForSeconds(delay);
+            mySprite.sprite = fire;
             Shoot();
+            yield return new WaitForSeconds(0.2f);
+            mySprite.sprite = drawn;
         }
     }
 
@@ -71,6 +78,14 @@ public class EnemyActor : Spawnable {
         StopAllCoroutines();
         isAlive = false;
         PlayerPrefs.SetInt(Names.currentKills, PlayerPrefs.GetInt(Names.currentKills) + 1);
+        mySprite.sprite = dead;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        gameObject.GetComponent<Collider>().enabled = false;
+        Collider[] cols  = gameObject.GetComponentsInChildren<Collider>();
+        for(int i = 0; i < cols.Length; i++)
+        {
+            cols[i].enabled = false;
+        }
     }
 
  }

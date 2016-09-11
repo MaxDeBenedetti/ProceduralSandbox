@@ -23,4 +23,5 @@ public class Names : MonoBehaviour {
     public static string exit = "exit";
     public static string enemyBullet = "enemyBullet";
     public static string playerBullet = "playerBullet";
+    public static string roomControl = "roomControl";
 }

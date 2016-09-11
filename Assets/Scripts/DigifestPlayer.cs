@@ -33,6 +33,7 @@ public class DigifestPlayer : MonoBehaviour {
         if (col.tag.Equals(Names.enemyBullet))
         {
             OnDamage(col.GetComponent<Bullet>().damage);
+            col.GetComponent<Bullet>().MakeExplode();
         }
 
         if (col.tag.Equals("exit"))
