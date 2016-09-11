@@ -14,9 +14,9 @@ public class KillPlayer : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if (collision.collider.tag.Equals("player"))
+        if (collision.tag.Equals("Player") || collision.tag.Equals("player"))
         {
             SceneManager.LoadScene("TheDungeon");
         }

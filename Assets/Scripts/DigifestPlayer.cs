@@ -45,6 +45,12 @@ public class DigifestPlayer : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag.Equals("Killer"))
+            SceneManager.LoadScene("TheDungeon");
+    }
+
     void Shoot()
     {
         
