@@ -24,7 +24,6 @@ GameObject:
   - 54: {fileID: 54000011752370342}
   - 82: {fileID: 82000013092852370}
   - 114: {fileID: 114000012987507458}
-  - 114: {fileID: 114000012269292152}
   - 114: {fileID: 114000012808791664}
   m_Layer: 0
   m_Name: DigifestPlayer
@@ -311,34 +310,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000012269292152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013289231216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b51d6a5a333d934d8fd533d3769bfee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health100: {fileID: 0}
-  health10: {fileID: 0}
-  health1: {fileID: 0}
-  healthIndicator: {fileID: 0}
-  numbers:
-  - {fileID: 21300018, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300000, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300002, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300004, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300006, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300008, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300010, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300012, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300014, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  - {fileID: 21300016, guid: 6b27d949bf858ac4eb969d2eee6340e0, type: 3}
-  midHealth: {fileID: 21300000, guid: e5ee98a6d11d7d5469d7afa4c8a55661, type: 3}
-  lowHealth: {fileID: 21300000, guid: b0b862d8998bb834796af39a6b9287e3, type: 3}
 --- !u!114 &114000012808791664
 MonoBehaviour:
   m_ObjectHideFlags: 1
