@@ -12,12 +12,14 @@ public class EnemyActor : Spawnable {
     private bool isReadyToShoot = true;
     public Sprite drawn, fire, dead;
     public SpriteRenderer mySprite;
+    public AudioSource shotSound, deathSound;
 
     // Use this for initialization
     void Start() {
         playerPosition = GameObject.FindGameObjectWithTag("Player").transform;
         health = PlayerPrefs.GetInt(Names.currentFloor);
         damage = health;//hacky
+        
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class EnemyActor : Spawnable {
         Bullet bullet = (Bullet)Instantiate(enemybullet, gun.position, gun.rotation);
         bullet.damage = damage;
         bullet.Fly(gunBase.transform.forward);
-
+        shotSound.Play();
     }
 
     void OnTriggerEnter(Collider col)
@@ -79,6 +81,7 @@ public class EnemyActor : Spawnable {
         isAlive = false;
         PlayerPrefs.SetInt(Names.currentKills, PlayerPrefs.GetInt(Names.currentKills) + 1);
         mySprite.sprite = dead;
+        deathSound.Play();
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
         gameObject.GetComponent<Collider>().enabled = false;
         Collider[] cols  = gameObject.GetComponentsInChildren<Collider>();
