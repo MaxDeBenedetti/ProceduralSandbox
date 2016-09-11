@@ -8,9 +8,10 @@ public class DigifestPlayer : MonoBehaviour {
 
     public Bullet playerBullet;
     public Transform gun;
+    public DamageFlash df;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         health = PlayerPrefs.GetInt("Current Health");
 	}
 	
@@ -54,6 +55,7 @@ public class DigifestPlayer : MonoBehaviour {
 
     void OnDamage(int damage)
     {
+        df.MakeFlash();
         health -= damage;
         gameObject.GetComponent<PlayerHealth>().UpdateHealth();
         if(health < 1)

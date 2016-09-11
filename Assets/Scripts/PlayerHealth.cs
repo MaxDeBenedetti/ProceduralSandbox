@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour {
     public Image health100, health10, health1, healthIndicator;
     public Sprite[] numbers = new Sprite[10];
     public Sprite midHealth, lowHealth;
+    
 
 	// Use this for initialization
 	void Start () {
