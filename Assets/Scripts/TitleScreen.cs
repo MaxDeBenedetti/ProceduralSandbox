@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class TitleScreen : MonoBehaviour {
 
+    private bool skipLoad = false;
+
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.SetInt(Names.currentFloor, 1);
@@ -13,7 +15,13 @@ public class TitleScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.anyKey)
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+        else if (Input.anyKey)
         {
             SceneManager.LoadScene("TheDungeon");
         }

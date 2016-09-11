@@ -17,5 +17,6 @@ public class HighScores : MonoBehaviour {
     {
         killCount.text = "" + PlayerPrefs.GetInt(Names.highKills);
         floorCount.text = "" + PlayerPrefs.GetInt(Names.highFloor);
+
     }
 }

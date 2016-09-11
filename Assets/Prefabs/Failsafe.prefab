@@ -23,6 +23,7 @@ GameObject:
   - 65: {fileID: 65000013673525108}
   - 23: {fileID: 23000010666810044}
   - 114: {fileID: 114000010221744948}
+  - 114: {fileID: 114000013894108650}
   m_Layer: 0
   m_Name: Failsafe
   m_TagString: Killer
@@ -100,5 +101,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 010eb3485cbb7324480a4e9d4215ad95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114000013894108650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013387209836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 870816cc7c2fc334c875cafc4f6d6450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

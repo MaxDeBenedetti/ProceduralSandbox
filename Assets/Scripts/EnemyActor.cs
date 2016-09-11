@@ -48,7 +48,6 @@ public class EnemyActor : Spawnable {
     void OnDamage(int damage)
     {
         health -= damage;
-        Debug.Log("hit " + health);
         if (health < 1)
             Die();
     }

@@ -42,7 +42,6 @@ public class Bullet : MonoBehaviour {
     {
         if (col.tag.Equals("WallOrFloor")) 
         {
-            Debug.Log(col.tag);
             StartCoroutine("Explode");
         }
     }
